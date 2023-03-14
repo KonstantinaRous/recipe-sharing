@@ -10,6 +10,7 @@ Front-end:
 * A form for users to add new recipes, including fields for the recipe name, ingredients, instructions, and photo upload
 * A form for users to edit or delete their recipes
 * A responsive design that looks good on both desktop and mobile devices
+
 Back-end:
 * A database to store recipe data, user data, and authentication information
 * An API to allow the front-end to interact with the database
