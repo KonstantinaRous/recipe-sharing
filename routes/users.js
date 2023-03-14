@@ -2,18 +2,17 @@ var express = require('express');
 var router = express.Router();
 var { models: { User } } = require('../models');
 
-async function create() {
-  const username = 'Dave';
+
+async function create() { //Creates a user
+  const username = 'user10';
   const password = '1234';
-  const email = 'test@gmail.com';
-  // const birthday = new Date().getDate();
-  // const temp = birthday.getDate();
-  // const isoBd = birthday.toISOString();
-  // console.log(`Current date: ${birthday}`);
+  const email = 'test10@gmail.com';
+  let date_of_birth = new Date();
   await User.create({
     username,
     password,
     email,
+    date_of_birth,
   });
 }
 
@@ -21,7 +20,6 @@ async function create() {
 router.get('/', function (req, res, next) {
   res.send('respond with a resource');
   create();
-  // const {username,password,email,date_of_birth} = {'Dave','1234','test@gmail.com','13/5/2012'};
 });
 
 module.exports = router;
