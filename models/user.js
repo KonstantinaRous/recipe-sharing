@@ -17,11 +17,11 @@ module.exports = (sequelize, DataTypes) => { // The sequelize and Datatypes will
             validate: { isEmail: true },
             unique: true
         },
-        // date_of_birth: {
-        //     type: DataTypes.DATE,
-        //     allowNull: true,
-        //     validate: { isDate: true }
-        // },
+        date_of_birth: {
+            type: DataTypes.DATE,
+            allowNull: true,
+            validate: { isDate: true }
+        },
     },
     {
         freezeTableName: true
