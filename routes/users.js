@@ -34,11 +34,17 @@ router.post('/new_user', async function (req, res, next) {
       // Check if password length is between 8 and 32 characters
       const password_len = req.body.password.length
       if (password_len >= 8 && password_len <= 32) {
-        // Create new user in the database
-        await User.create(req.body);
-        // Return list of all users
-        const list_of_all = await User.findAll();
-        res.json(list_of_all);
+        // Checks for Validation Error, like the email not being in proper email format
+        try {
+          // Create new user in the database
+          await User.create(req.body);
+          // Return list of all users
+          const list_of_all = await User.findAll();
+          res.json(list_of_all);
+        }
+        catch (error) {
+          res.send("Validation Error");
+        }
       }
       else
         res.send("Password must be 8-32 characters long");
