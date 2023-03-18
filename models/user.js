@@ -3,28 +3,48 @@ module.exports = (sequelize, DataTypes) => { // The sequelize and Datatypes will
         username: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: { notEmpty: true },
+            validate: {
+                notEmpty: true,
+                notNull: true
+            },
             unique: true
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: { notEmpty: true }
+            validate: {
+                isAlphanumeric:{
+                    args: true,
+                    msg: "Password must be Alphanumeric"
+                },
+                len: {
+                    args: [8, 32],
+                    msg: "Password must be 8-32 characters long"
+                },
+                notEmpty: true,
+                notNull: true
+            }
         },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: { isEmail: true },
+            validate: {
+                isEmail: true,
+                notNull: true
+            },
             unique: true
         },
         date_of_birth: {
             type: DataTypes.DATE,
-            allowNull: true,
-            validate: { isDate: true }
+            allowNull: false,
+            validate: {
+                isDate: true,
+                notNull: true
+            }
         },
     },
-    {
-        freezeTableName: true
-    });
+        {
+            freezeTableName: true
+        });
     return User;
 };

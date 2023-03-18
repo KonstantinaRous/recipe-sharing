@@ -1,12 +1,11 @@
-module.exports = (sequelize, Datatypes) => {
-    const Photo = sequelize.define('photo',
-        {
-            photo_path: {
-                type: Datatypes.STRING,
-                allowNULL: false,
-                validate: { isEmpty: false }
-            }
-        },
+module.exports = (sequelize, DataTypes) => {
+    const Photo = sequelize.define('photo', {
+        photo_path: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: { notEmpty: true, notNull: true }
+        }
+    },
         { freezeTableName: true });
     return Photo;
-}
+} 

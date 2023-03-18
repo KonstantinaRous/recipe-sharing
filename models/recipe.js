@@ -1,23 +1,23 @@
-module.exports = (sequelize,DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const Recipe = sequelize.define("recipe", {
         recipe_name: {
             type: DataTypes.STRING,
-            allowNULL: false,
-            validate: { isEmpty: false }
+            allowNull: false,
+            validate: { notEmpty: true, notNull: true }
         },
         ingrediants: {
             type: DataTypes.TEXT,
             allowNull: false,
-            validate: { isEmpty: false }
+            validate: { notEmpty: true , notNull: true}
         },
         instructions: {
             type: DataTypes.TEXT,
             allowNull: false,
-            validate: { isEmpty: false }
+            validate: { notEmpty: true , notNull: true}
         }
     },
-    {
-        freezeTableName: true
-    });
+        {
+            freezeTableName: true
+        });
     return Recipe;
 }
