@@ -14,6 +14,7 @@ db.models.User = require('./user')(sequelize, Sequelize.DataTypes); // db.models
 // it will export a function that takes the arguments: sequelize and Datatypes
 db.models.Recipe = require('./recipe')(sequelize, Sequelize.DataTypes); // Do the samething for Recipe
 db.models.Photo = require('./photo')(sequelize, Sequelize.DataTypes);
+db.models.Rating = require('./rating')(sequelize, Sequelize.DataTypes);
 
 applyExtraSetup(db); // Applies associations 
 

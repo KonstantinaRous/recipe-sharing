@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
         photo_path: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: { notEmpty: true, notNull: true }
+            validate: { notEmpty: true, notNull: true },
+            unique: true
         }
     },
         { freezeTableName: true });

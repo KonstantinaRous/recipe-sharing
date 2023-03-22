@@ -9,9 +9,18 @@ router.get('/', function (req, res, next) {
   console.log(ipAddress);
 });
 
-router.get('/new_user', user.getUsers);
+router.get('/get_users', user.getUsers);
 
 router.post('/new_user', user.create);
 
+router.put('/change_username', user.update_username);
+
+router.put('/change_email', user.update_email);
+
+router.put('/change_password', user.update_password);
+
+router.put('/change_birthdate', user.updateDateOfBirth);
+
+router.delete('/delete_user', user.deleteUser);
 
 module.exports = router;

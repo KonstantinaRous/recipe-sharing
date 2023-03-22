@@ -4,6 +4,7 @@ function applyExtraSetup(db) {
     const user = db.models.User;
     const recipe = db.models.Recipe;
     const photo = db.models.Photo;
+    const rating = db.models.Rating;
 
     user.hasMany(recipe, {
         foreignKey: {
@@ -32,6 +33,35 @@ function applyExtraSetup(db) {
             name: 'recipe_id',
             allowNull: false,
             validate: { notNull: true }
+        }
+    });
+
+    recipe.hasMany(rating, {
+        foreignKey: {
+            name: 'recipe_id',
+            allowNull: false,
+            validate: { notNull: true }
+        }
+    });
+    rating.belongsTo(recipe, {
+        foreignKey: {
+            name: 'recipe_id',
+            allowNull: false,
+            validate: { notNull: true }
+        }
+    });
+    user.hasMany(rating, {
+        foreignKey: {
+            name: 'user_id',
+            allowNull: false,
+            validate: { notNull: true },
+        }
+    });
+    rating.belongsTo(user, {
+        foreignKey: {
+            name: 'user_id',
+            allowNull: false,
+            validate: { notNull: true },
         }
     });
 }

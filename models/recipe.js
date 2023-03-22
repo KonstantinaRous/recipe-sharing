@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: false,
             validate: { notEmpty: true , notNull: true}
-        },
+        }, 
         instructions: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: false, 
             validate: { notEmpty: true , notNull: true}
         }
     },
