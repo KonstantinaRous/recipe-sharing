@@ -8,6 +8,18 @@ var app = require('../app');
 var debug = require('debug')('recipe-sharing:server');
 var http = require('http');
 
+// var sequelize = require('../config');
+
+const { Sequelize, DataTypes } = require('sequelize');
+
+// Option 1: Passing a connection URI
+const sequelize = new Sequelize('postgres://giorgosrousias:1234@localhost:5432/recipe_sharing')
+
+module.exports = Object.freeze({
+  sequelize: sequelize
+});
+
+
 /**
  * Get port from environment and store in Express.
  */
@@ -81,7 +93,18 @@ function onError(error) {
  * Event listener for HTTP server "listening" event.
  */
 
+async function testConnection() {
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+};
+
+
 function onListening() {
+  testConnection();
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr

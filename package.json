@@ -11,6 +11,13 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
-    "morgan": "~1.9.1"
-  }
+    "morgan": "~1.9.1",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.29.3"
+  },
+  "description": "Build a Recipe Sharing Website The idea is to build a website where users can share their favorite recipes. Here are some suggested features: Front-end: * A homepage that displays the most popular recipes or the latest recipes added * A search bar to allow users to search for recipes by keyword or ingredient * A page for each recipe that displays the ingredients, instructions, and photos * A page for each user that displays the recipes they have added and their profile information * A form for users to add new recipes, including fields for the recipe name, ingredients, instructions, and photo upload * A form for users to edit or delete their recipes * A responsive design that looks good on both desktop and mobile devices",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC"
 }
